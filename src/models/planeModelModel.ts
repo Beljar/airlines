@@ -3,6 +3,7 @@ import PlaneModelType from '../types/planeModelType';
 const PlaneModel: () => PlaneModelType = () => ({
   id: '',
   name: '',
+  manufacturer: '',
   passCapacity: 0,
   speed: 0,
   price: 0,

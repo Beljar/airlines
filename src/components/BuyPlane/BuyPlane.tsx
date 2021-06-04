@@ -3,16 +3,20 @@ import PlaneModelSelector from '../PlaneModelSelector';
 import PlaneModel from '../../models/planeModelModel';
 import PlaneModelView from '../PlaneModelView';
 import BuyPlaneBtn from '../BuyPlaneBtn';
+import PlaneModels from '../../assets/data/planesModels';
+import PlaneManufacturerFilter from '../PlaneManufacturerFilter';
 
 const BuyPlane: React.FC = () => {
-  const [plane, setPlane] = useState(PlaneModel());
+  const [planes, setPlanes] = useState(PlaneModels);
   useEffect(() => {
-    console.log(plane);
-  }, [plane]);
+    console.log(planes);
+  }, [planes]);
   return <React.Fragment>
-    <PlaneModelSelector onChange={(selectedPlane) => setPlane(selectedPlane)} />
-    <PlaneModelView plane={ plane }/>
-    <BuyPlaneBtn plane={ plane }/>
+    <PlaneManufacturerFilter />
+    {planes.map((plane, idx) => <div key={idx}>
+      <PlaneModelView plane={plane} />
+      <BuyPlaneBtn plane={plane} />
+    </div>)}
   </React.Fragment>;
 };
 
